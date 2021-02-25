@@ -1,5 +1,6 @@
 from restfly.session import APISession
 from restfly.endpoint import APIEndpoint
+from restfly.errors import NotFoundError
 from google.oauth2 import service_account
 from google.auth.transport import requests
 import arrow
@@ -53,8 +54,7 @@ class SCCFindings(APIEndpoint):
                 'sourceProperties.vpr_score',
             ]
 
-        return self._api.patch(finding['name'],
-            json=finding,
-            params={'updateMask': ','.join(mask)}
-        ).json()
-
+        try:
+            return self._api.patch(finding['name'], json=finding, params={'updateMask': ','.join(mask)}).json()
+        except NotFoundError as err:
+            return self._api.patch(finding['name'], json=finding).json()
