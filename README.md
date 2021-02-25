@@ -53,7 +53,7 @@ Options:
   -t, --threads INTEGER           How many concurrent threads to run for the
                                   import.
   -s, --service-account-file PATH
-  -i, --service-id TEXT           The GCP CSCC Source ID
+  -i, --source-id TEXT            The GCP CSCC Source ID
   --help                          Show this message and exit.
 ```
 
@@ -66,7 +66,7 @@ tenable-cscc                                    \
     --tio-access-key {TIO_ACCESS_KEY}           \
     --tio-secret-key {TIO_SECRET_KEY}           \
     --service-account-file {SA_JSON_FILENAME}   \
-    --org-id {ORG_ID}
+    --source-id {SOURCE_ID}
 ```
 
 Run the import once an hour:
@@ -76,7 +76,7 @@ tenable-cscc                                    \
     --tio-access-key {TIO_ACCESS_KEY}           \
     --tio-secret-key {TIO_SECRET_KEY}           \
     --service-account-file {SA_JSON_FILENAME}   \
-    --org-id {ORG_ID}
+    --source-id {SOURCE_ID}
     --run-every 1
 ```
 
